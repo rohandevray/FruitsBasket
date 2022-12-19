@@ -1,0 +1,13 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>My Account</h1>
+
+<img  style="width: 200px; height: 200px;" src="{{profile.profile_image.url}}" alt="">
+<h3>{{profile.name}}</h3>
+<p>{{profile.short_intro}}</p>
+<p>{{profile.location}}</p>
+
+<a href="{% url 'update-profile' %}">Edit Profile</a>
+<!-- <a href="">Delete Profile</a> -->
+{% endblock content %}

@@ -1,0 +1,9 @@
+{% extends 'main.html' %}
+{% block content %}
+<h1>My Cart</h1>
+{% for item in items %}
+<h1>{{item.name}}</h1>
+{% endfor %}
+
+<!-- <button>Buy ${{total_price}}</button>  -->
+{% endblock content %}

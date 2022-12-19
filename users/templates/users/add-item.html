@@ -1,0 +1,14 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<h1>Added item</h1>
+<p>{{product.fruit_name}}</p>
+<img style="width: 200px; height: 200px;"  src="{{product.featured_image.url}}" alt="xyz">
+
+<form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Submit" />
+</form>
+
+{% endblock content %}
