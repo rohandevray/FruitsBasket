@@ -1,5 +1,4 @@
 from django.shortcuts import render ,redirect
-# from products.models import Product
 from .forms import CustomUserCreationForm , CustomProfile
 from django.contrib.auth.models import User
 #for login/authenticate/logout
@@ -77,26 +76,6 @@ def updateProfile(request):
     context={'form':form}
     return render(request,'users/edit-profile.html',context)
 
-# @login_required(login_url='login')
-# def myCart(request):
-#     context={}
-#     return render(request,'users/user-cart.html', context)
-    
-# @login_required(login_url='login')
-# def addItem(request,pk):
-#     product = Product.objects.get(id=pk)
-#     form = ItemForm(instance=product)
-#     if request.method == 'POST':
-#         form = ItemForm(request.POST,instance=product)
-#         if form.is_valid():
-#             product= form.save(commit=False)
-#             product.quantity = request.POST['quantity']
-#             if product.toggle == False:
-#                 product.is_selected =True
-#             product.save()
-#             return redirect('products')
-#     context={'product': product,'form':form}
-#     return render(request,'users/add-item.html',context)
 
 
 

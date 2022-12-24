@@ -23,7 +23,9 @@
             <h5>{{product.fruit_name}}</h5>
             <p>${{product.price}}</p>
             {% if product.is_selected == False %}
-          <a href="{% url 'add-item' product.id %}">Add to cart</a>
+          <a href="{% url 'single-fruit' product.id %}">Add to cart</a>
+          {% else %}
+          <a href="{% url 'single-fruit' product.id %}">Added</a>
           {% endif %}
           </div>
         </div>
