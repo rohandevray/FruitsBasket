@@ -18,15 +18,11 @@
       <div class="fruit_container">
         {% for product in products %}
         <div class="box">
-          <img src="{{product.featured_image.url}}" alt="default-image">
+          <img  style="width: 500px; height: 300px;"  src="{{product.featured_image.url}}" alt="default-image">
           <div class="link_box">
             <h5>{{product.fruit_name}}</h5>
             <p>${{product.price}}</p>
-            {% if product.is_selected == False %}
-          <a href="{% url 'single-fruit' product.id %}">Add to cart</a>
-          {% else %}
-          <a href="{% url 'single-fruit' product.id %}">Added</a>
-          {% endif %}
+        <a href="{% url 'single-fruit' product.id %}">Add to cart</a>
           </div>
         </div>
         {% endfor %}

@@ -6,7 +6,6 @@
 <p>{{product.company_name}}</p>
 <p>{{product.location}}</p>
 <img style="width: 200px; height: 200px;"  src="{{product.featured_image.url}}" alt="xyz">
-
 <form action="" method="POST">
     {% csrf_token %}
     {{form.as_p}}

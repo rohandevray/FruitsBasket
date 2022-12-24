@@ -1,16 +1,16 @@
 from django.db import models
-from django.contrib.auth.models import User
+# from django.contrib.auth.models import User
 import uuid
 # Create your models here.
 
 
 class Product(models.Model):
+    owner = models.ForeignKey("users.Profile",on_delete=models.CASCADE,null=True,blank=True)
     fruit_name=models.CharField(max_length=200,blank=True,null=True)
     company_name=models.CharField(max_length=500,blank=True,null=True)
     location = models.CharField(max_length=500,blank=True,null=True)
-    price=models.IntegerField(blank=True,null=True)
+    price=models.FloatField(blank=True,null=True)
     featured_image=models.ImageField(null=True,blank=True,default="default.jpg")
-    is_selected =models.BooleanField(blank=True,null=True,default=False)
     quantity = models.IntegerField(blank=True,null=True,default=0)
     created =models.DateTimeField(auto_now_add=True)
     id= models.UUIDField(default=uuid.uuid4, editable=False, primary_key=True,unique=True)
@@ -27,7 +27,6 @@ class Product(models.Model):
         return grand
 
 class Cart(models.Model):
-    user = models.OneToOneField(User,on_delete=models.CASCADE,blank=True,null=True)
     fruits = models.ManyToManyField(Product,blank=True)
     name = models.CharField(max_length=200,null=True,blank=True)
     created =models.DateTimeField(auto_now_add=True)
